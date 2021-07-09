@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Personne physique index
+{% endblock %}
+
+{% block body %}
+	<h1>Personne physique index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Genre</th>
+				<th>Prénom</th>
+				<th>Nom</th>
+				<th>Date de naissance</th>
+				<th>Lieu de naissance</th>
+				<th>Email</th>
+				<th>Telephone</th>
+				<th>Telephone2</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for natural_person in natural_people %}
+				<tr>
+					<td>{{ natural_person.id }}</td>
+					<td>{{ natural_person.gender }}</td>
+					<td>{{ natural_person.firstname }}</td>
+					<td>{{ natural_person.lastname }}</td>
+					<td>{{ natural_person.dateOfBirth ? natural_person.dateOfBirth|date('Y-m-d') : '' }}</td>
+					<td>{{ natural_person.placeOfBirth }}</td>
+					<td>{{ natural_person.email }}</td>
+					<td>{{ natural_person.telephone }}</td>
+					<td>{{ natural_person.telephone2 }}</td>
+					<td>
+						<a href="{{ path('natural_person_show', {'id': natural_person.id}) }}">Montrer</a>
+						<a href="{{ path('natural_person_edit', {'id': natural_person.id}) }}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="10">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('natural_person_new') }}">Créer une personne physique</a>
+{% endblock %}

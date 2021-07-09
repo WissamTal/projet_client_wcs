@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Nouvelle personne physique
+{% endblock %}
+
+{% block body %}
+	<h1>Créer une nouvelle personne physique</h1>
+
+	{{ include('natural_person/_form.html.twig') }}
+
+	<a href="{{ path('natural_person_index') }}">Retour à liste</a>
+{% endblock %}

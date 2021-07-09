@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collège index{% endblock %}
+
+{% block body %}
+    <h1 class= "mt-5 mb-5 text-center"> Collège index</h1>
+    <div class="m-5">
+    <table class="table table-striped table-hover table-borderless">
+        <thead class="table-light">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Slug</th>
+                <th>Description</th>
+                <th>Nombre de vote</th>
+                <th>PrefixClassification</th>
+                <th>Apercevoir ou Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for college in colleges %}
+            <tr>
+                <td>{{ college.id }}</td>
+                <td>{{ college.name }}</td>
+                <td>{{ college.slug }}</td>
+                <td>{{ college.description }}</td>
+                <td>{{ college.nbVotingRight }}</td>
+                <td>{{ college.prefixClassification }}</td>
+                <td>
+                    <a href="{{ path('college_show', {'id': college.id}) }}">Aperçu</a> 
+                    /
+                    <a href="{{ path('college_edit', {'id': college.id}) }}">Modification</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+<section class="btn btn-light m-3">
+
+    <a href="{{ path('college_new') }}">Créer un nouveau collège</a>
+</section>
+{% endblock %}

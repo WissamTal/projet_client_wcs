@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400;500;700");
+@import "./landing.css";
+@import "./admin.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --titlefont:'Hammersmith One', sans-serif;
+    --textfont:'Roboto', sans-serif;
+    --bannergray:#6E87A0;
+    --lightbannergray:#6e87a033;
+    --primarygray: #697988;
+    --primarygreen: #64B3B4;
+    --lightgreen: #64b3b433;
+    --white: #ffffff;
+    --cardwhite:#ebebeb;
+}
+
+body {
+    box-sizing: border-box;
+    color: var(--primarygray);
+    background-color: var(--lightgreen);
+    font-family: var(--textfont);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.667;
+}
+.main {
+    min-height:80vh;
+}
+h1, h2, h3, h4, h5 {
+    font-family: var(--titlefont);
+    color: var(--primarygreen);
+    line-height: 1.25;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+h1, .h1 {
+    font-size: 30px;
+    line-height: 1.2;
+}
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+.material-icons {
+    font-size: 30px;
+    color: var(--bannergray);
+}
+.section-margin {
+    margin: 60px 0;
+}
+@media (min-width: 300px) {
+    .section-margin {
+        margin: 20px 0;
+    }
+}
+@media (min-width: 600px) {
+    .section-margin {
+        margin: 40px 0;
+    }
+}
+@media (min-width: 1200px) {
+    .section-margin {
+    margin: 80px 0;
+    }
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    border: 1px solid transparent;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 5px 5px;
+    border-radius: 20px;
+    background-color: var(--white);
+    color: var(--primarygreen);
+    color: var(--primarygray);
+    transition: all .4s ease;
+}
+.button:hover {
+    background-color: transparent;
+    border-color: var(--primarygreen);
+    color: var(--primarygray);
+}
+button {
+    cursor: pointer;
+}
+button:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.button-light {
+    background-color: transparent;
+    border-color: var(--primarygreen);
+}
+.button-light:hover {
+    background-color: var(--primarygreen);
+    color: var(--white) !important;
+}
+
+@media (min-width: 300px) {
+    .button {
+    padding: 10px 24px;
+    }
+}
+.button.bg:hover {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+
+

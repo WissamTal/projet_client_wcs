@@ -1,0 +1,123 @@
+/* Navbar Aside start */
+
+.wrapper {
+    display: flex;
+    position: relative;
+    font-family: var(--titlefont);
+}
+
+.wrapper .sidebar {
+    width: 250px;
+    height: 100%;
+    background: var(--bannergray);
+    padding: 5px;
+    position: fixed;
+    text-align: center;
+}
+
+.wrapper .sidebar img {
+    padding: 40px 20px;
+}
+
+
+/* Nav */
+
+.wrapper .sidebar ul {
+    padding: 0 20px;
+    margin-top: 120px;
+}
+
+.wrapper .sidebar ul li {
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 0px 10px 20px 0px rgba(33, 20, 106, 0.1);
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--lightgreen);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navSelect {
+    background: var(--primarygreen);
+}
+
+.wrapper .sidebar ul li {
+    color: var(--white);
+    display: block;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: var(--primarygreen);
+}
+
+
+/* Navbar Top start */
+
+.header {
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    border-radius: 0 0 0 30px;
+    background: var(--bannergray);
+    color: var(--white);
+    box-shadow: 0px 10px 20px 0px rgba(33, 20, 106, 0.1);
+    border-bottom: 1px solid var(--lightgreen);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* Navbar Top end */
+
+
+/* Main Content page */
+
+.wrapper .main_content .info {
+    margin: 50px 20px 0 300px;
+    line-height: 25px
+}
+
+.wrapper .main_content .info div {
+    margin-bottom: 20px
+}
+
+@media (min-width: 1000px) {
+    .main_content {
+        width: 78%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main_content {
+        position: relative;
+        left: 250px;
+        width: 75%;
+        margin: 30px;
+    }
+    .header {
+        width: 25vh;
+    }
+    .navxs {
+        display: none;
+    }
+}
+
+@media (min-width: 900px) {
+    .navlg {
+        display: none;
+    }
+    .main_content {
+        margin: 30px;
+    }
+}
+
+@media (min-width: 300px) {
+    .navlg {
+        display: none;
+    }
+    .main_content {
+        margin: 30px;
+    }
+}

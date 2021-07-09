@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Documents
+{% endblock %}
+
+{% block navbar %}
+    {% include 'admin/_navbarAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="main_content">
+        <section>
+            <div class="mt-5 text-left">
+                <h1>Les documents</h1>
+            </div>
+        </section>
+        <div class="mt-5">
+            <form action="verif-form.php" method="get">
+                <input type="search" name="search" class="button button-light">
+                <input type="submit" name="submit" value="Rechercher" class="button button-light">
+            </form>
+        </div>
+        <div class="mt-5 text-end">
+            <div class="container mt-5" {{ stimulus_controller('reload-content', { url: path('document_index', {ajax: 1 } ) }) }}
+                 data-action="modal-form:success->reload-content#refreshContent">
+                <div class="row my-5">
+                    <div class="col-12 col-md-12 col-lg-4 text-center">
+                        <div class="mt-2" {{ stimulus_controller('modal-form', { formUrl : path('document_new') } ) }}
+                             data-action="hidden.bs.modal->modal-form#modalHidden">
+
+                            <button class="button button-light" data-action="modal-form#openModal">Uploader Document
+                            </button>
+                            {{ include('_modal.html.twig', {
+                                modalTitle: 'upload document'
+                            }) }}
+                        </div>
+
+                        <div data-reload-content-target="content">
+                            {{ include('document/_list.html.twig') }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Personne physique
+{% endblock %}
+
+{% block navbar %}
+	{% include 'admin/_navbarAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	<div class="main_content">
+		<h1>Personne physique</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ naturalPerson.id }}</td>
+				</tr>
+				<tr>
+					<th>Genre</th>
+					<td>{{ naturalPerson.gender }}</td>
+				</tr>
+				<tr>
+					<th>Prénom</th>
+					<td>{{ naturalPerson.firstname }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ naturalPerson.lastname }}</td>
+				</tr>
+				<tr>
+					<th>Date de naissance</th>
+					<td>{{ naturalPerson.dateOfBirth ? naturalPerson.dateOfBirth|date('Y-m-d') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Lieu de naissance</th>
+					<td>{{ naturalPerson.placeOfBirth }}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>{{ naturalPerson.email }}</td>
+				</tr>
+				<tr>
+					<th>Telephone</th>
+					<td>{{ naturalPerson.telephone }}</td>
+				</tr>
+				<tr>
+					<th>Telephone2</th>
+					<td>{{ naturalPerson.telephone2 }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('members_index') }}">Retour à l'index</a>
+
+		<a href="{{ path('members_editNatural', {'id': naturalPerson.id}) }}">Editer</a>
+	</div>
+{% endblock %}

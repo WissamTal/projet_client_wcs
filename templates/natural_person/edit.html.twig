@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Editer personne physique
+{% endblock %}
+
+{% block body %}
+	<h1>Editer personne physique</h1>
+
+	{{ include('natural_person/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a href="{{ path('natural_person_index') }}">retour à la liste</a>
+
+	{{ include('natural_person/_delete_form.html.twig') }}
+{% endblock %}

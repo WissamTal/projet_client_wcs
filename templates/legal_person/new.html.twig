@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Nouvelle personne morale
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter une nouvelle personne morale</h1>
+
+	{{ include('legal_person/_form.html.twig') }}
+
+	<a href="{{ path('legal_person_index') }}">Retour à la liste</a>
+{% endblock %}

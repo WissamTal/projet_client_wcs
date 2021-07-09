@@ -1,0 +1,85 @@
+:root {
+    --bannergray:#6E87A0;
+    --lightbannergray:#6e87a033;
+    --primarygray: #697988;
+    --primarygreen: #64B3B4;
+    --lightgreen: #64b3b433;
+    --white: #ffffff;
+    --cardwhite:#ebebeb;
+
+    --font-family-sans-serif:'Roboto', sans-serif;
+    --font-family-base: 'Hammersmith One', sans-serif;
+
+    --body-bg: var(--lightgreen);
+    --text-color: var(--bannergray);
+    --text-color-dark: var(--primarygray);
+    --text-color-light: var(--lightbannergray);
+    --form-bg: var(--cardwhite);
+    --table-header-bg: hsl(210, 40%, 95%);
+    --table-footer-bg: hsl(210, 45%, 98%);
+    --fieldset-bg: var(--lightgreen);
+}
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+.body{
+    background: var(--lightgreen);
+}
+.main-sidebar {
+    background: var(--bannergray);
+}
+.content-header {
+    background: transparent;
+}
+.content-header:before,
+.content-header:after {
+    background: transparent !important;
+}
+#main-menu .menu .menu-item.active:not(.expanded) .menu-icon, #main-menu .menu .menu-item.active:not(.expanded) a {
+    color: var(--primarygreen);
+}
+#main-menu .menu {
+    margin-top: 20px;
+}
+#main-menu .menu .menu-header {
+    color: var(--gray-600);
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 7px 5px 7px 0;
+    text-transform: uppercase;
+}
+#main-menu .menu a {
+    color: var(--white);
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 7px 5px 7px 15px;
+    text-transform: uppercase;
+}
+.page-item.active .page-link {
+    background-color: var(--primarygreen)!important;
+    border-color: var(--primarygreen)!important;
+}
+.btn {
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--white);
+    color: var(--primarygreen);
+    color: var(--primarygray);
+    transition: all .4s ease;
+}
+.btn-primary {
+    background-color: transparent;
+    border-color: var(--primarygreen);
+}
+.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled):focus {
+    background-color: var(--primarygreen);
+    border-color: var(--primarygreen);
+}

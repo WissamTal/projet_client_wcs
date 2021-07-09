@@ -1,0 +1,39 @@
+{{ form_start(form) }}
+{{ form_row(form.name, {'label': 'Nom'}) }}
+{{ form_row(form.siren, {'label': 'SIREN'}) }}
+{{ form_row(form.tradeAndCompagnyRegister, {'label': 'tradeAndCompagnyRegister ?'}) }}
+{{ form_row(form.registerCapital, {'label': 'Capital'}) }}
+{{ form_row(form.companyForm, {'label': 'Forme juridique'}) }}
+{{ form_row(form.email, {'label': 'Email'}) }}
+{{ form_row(form.telephone, {'label': 'Téléphone'}) }}
+{{ form_row(form.telephone2, {'label': 'Téléphone (2)'}) }}
+{% if form.mainRepresentative is defined %}
+	{{ form_row(form.mainRepresentative, {'label': 'Représentant principal'}) }}
+{% endif %}
+{% if form.secondRepresentative is defined %}
+	{{ form_row(form.secondRepresentative, {'label': 'Autre représentant'}) }}
+{% endif %}
+<h3>Adresse(s)</h3>
+<button type="button" class="add_item_link button button-light" data-collection-holder-class="addresses">Ajouter une adresse</button>
+<ul class="addresses" data-prototype="{{ form_widget(form.addresses.vars.prototype)|e('html_attr') }}">
+	{% for address in form.addresses %}
+		<li>{{ form_row(address.addressStreet) }}</li>
+		<li>{{ form_row(address.addressComplement) }}</li>
+		<li>{{ form_row(address.addressZip) }}</li>
+		<li>{{ form_row(address.addressCity) }}</li>
+		<li>{{ form_row(address.addressCountry) }}</li>
+	{% endfor %}
+</ul>
+<h4 id="executif" onclick="toggleMenu()" style="border: 3px solid; color: black"> Add an Exécutif</h4>
+<ul class="executive px-0" id="executif-display" style="display: none">
+	<li>{{ form_row(form.executive.mandateStartdate, {'label': 'Date de début de mandat'}) }}</li>
+	<li>{{ form_row(form.executive.mandateEnddate, {'label': 'Date de fin de mandat'}) }}</li>
+	<li>{{ form_row(form.executive.mandateType, {'label': 'Type de mandat'}) }}</li>
+	<li>{{ form_row(form.executive.mandateLimitations, {'label': 'Limitations de mandat'}) }}</li>
+</ul>
+
+{{ form_row(form.structure) }}
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+
+
+{{ form_end(form) }}

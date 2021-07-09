@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Home{% endblock %}
+
+{% block navbar %}{% include 'home/_navbar.html.twig' %}{% endblock %}
+
+{% block body %}
+	<!--================ Banner start =================-->
+	<section class="hero-banner-index">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="hero-banner__img">
+						<img class="img-fluid" src="{{ asset('build/images/hero-banner.png') }}" alt="">
+					</div>
+				</div>
+				<div class="col-lg-5 pt-5">
+					<div class="hero-banner__content">
+						<h1>Envie de simplifier la gouvernance de votre SCIC&#8239;?</h1>
+						<p>Vous gérer la gouvernance d'une ou plusieurs SCIC&#8239;?
+						Convoquer une assemblée générale vous semble compliqué&#8239;?
+						<strong>Notre logiciel va vous aider.</strong></p>
+						</p>
+						<a class="button bg" href="{{ path('landing_contact') }}">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ Banner end =================-->
+
+	<!--================ Feature section start =================-->
+	<section class="section-margin">
+		<div class="container">
+			<div class="section-intro text-center">
+				<h2 class="section-intro__title">Comprendre vos besoins</h2>
+				<p class="section-intro__subtitle">Notre logiciel n'a qu'un but, vous simplifier la gestion des opérations liées à la gouvernance d'une société coopérative d'intérêt collectif.</p>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="card card-feature text-center text-lg-left mb-4 mb-lg-0 p-3">
+							<div class="card-feature__icon text-center back m-3"><span class="material-icons">mouse</span></div>
+							<h3 class="card-feature__title">Simplicité</h3>
+							<p class="card-feature__subtitle">Vous avez horreur des usines à gaz&#8239;?<br> Nous aussi&#8239;!<br>Notre logiciel va à l'essentiel, des fonctionnalités utiles et une interface simple et intuitive.
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card card-feature text-center text-lg-left mb-4 mb-lg-0 p-3">
+							<div class="card-feature__icon text-center back m-3"><span class="material-icons">question_answer</span></div>
+							<h3 class="card-feature__title">Développement participatif</h3>
+							<p class="card-feature__subtitle">Pour ne jamais s'éloigner de vos attentes, nous vous demandons de participer à l'élaboration des fonctionnalités de notre logiciel. Le coopératif, c'est aussi notre truc, alors développons ce projet ensemble.</p>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card card-feature text-center text-lg-left mb-4 mb-lg-0 p-3">
+							<div class="card-feature__icon text-center back m-3"><span class="material-icons">headphones</span></div>
+							<h3 class="card-feature__title">Service client</h3>
+							<p class="card-feature__subtitle">Comme vous nous n'avons pas envie d'acheter quelque chose et d'être laissé à l'abandon ensuite. Aussi nous nous efforçons de vous offrir un sav de qualité.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ Feature section end =================-->
+
+    <!--================ about section start =================-->
+    <section class="section-about">
+      <div class="container">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-5 mb-5 mb-md-0">
+            <div class="about__content">
+              <h2>La technologie au coeur de la révolution participative</h2>
+              <p>Les sociétés coopératives d'intérêt collectif ont de plus en plus de succès, mais leur gouvernance est généralement complexe. Nous allons vous proposer le premier logiciel dédié du marché qui va vous aider à mieux gérer la gouvernance de votre SCIC.</p>
+              <a class="button button-light" href="{{ path('landing_contact') }}">En savoir plus</a>
+            </div>
+          </div>
+          <div class="col-md-7 about__img">
+              <img class="img-fluid about__img" src="{{ asset('build/images/offer.png') }}" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  <!--================ about section end =================-->
+  <section class="section-offer">
+      <div class="container">
+        <div class="section-intro pb-85px text-center">
+          <h2 class="section-intro__title">Fonctionnalités</h2>
+          <p class="section-intro__subtitle">Démarrons par des fonctionnalités simples et engageons une démarche participative d'amélioration continue.</p>
+        </div>
+  {% include 'home/_offer.html.twig' %}
+
+	<!--================ Testimonial section start =================-->
+    <section class="section-testimonial">
+      <div class="container">
+        <div class="section-intro pb-4 text-center">
+          <h2 class="section-intro__title">Ils témoignent de leurs attentes</h2>
+          <p class="section-intro__subtitle pb-3">Comprendre vos besoins est la clé du développement de notre logiciel. Eux ont déjà exprimé leurs attentes, alors pourquoi pas vous&#8239;?</p>
+          <p><a class="button" href="{{ path('landing_contact') }}" >Je participe</a></p>
+        </div>
+
+        <div class="owl-carousel owl-theme testimonial">
+          <div class="testimonial__item text-center">
+            <div class="testimonial__img">
+              <img src=" {{ asset('build/images/user.png')}}" width="150px" height="150px" alt="">
+            </div>
+            <div class="testimonial__content">
+              <h3>Olivier SCHEFFER</h3>
+              <p>Directeur développement CEEBIOS</p>
+              <p class="testimonial__i">La gouvernance est compliqué pour le néophite...</p>
+            </div>
+          </div>
+          <div class="testimonial__item text-center">
+            <div class="testimonial__img">
+              <img src=" {{ asset('build/images/user.png')}}" width="150px" height="150px" alt="">
+            </div>
+            <div class="testimonial__content">
+              <h3>Kalina RASKIN</h3>
+              <p>Directrice Générale CEEBIOS</p>
+              <p class="testimonial__i">Déjà que j'ai pas beaucoup de temps, alors là ça m'aide bien&#8239;!</p>
+            </div>
+          </div>
+          <div class="testimonial__item text-center">
+            <div class="testimonial__img">
+              <img src=" {{ asset('build/images/user.png')}}" width="150px" height="150px" alt="">
+            </div>
+            <div class="testimonial__content">
+              <h3>André FALCHI</h3>
+              <p>Directeur Générale NOBATEK INEF 4</p>
+              <p class="testimonial__i">Gouverner une SCIC c'est chaud donc avoir un logiciel dédié, ça aide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Testimonial section end =================-->
+
+    <!--================ Pricing section start =================-->
+	<section class="section-margin">
+      <div class="container">
+        <div class="section-intro pb-85px text-center">
+            <h2 class="section-intro__title mb-3">Tarifs</h2>
+            <h6 class="section-intro__subtitle mb-5">Choississez la formule adaptée à vos besoins</h6>
+        </div>
+    {% include 'home/_pricing.html.twig' %}
+    <!--================ Pricing section end =================-->
+{% endblock %}
+
+{% block footer %}{% include 'home/_footer.html.twig' %}{% endblock %}

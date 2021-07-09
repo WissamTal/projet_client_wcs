@@ -1,0 +1,87 @@
+<header>
+	<section class="navlg d-lg-flex">
+		<div class="wrapper">
+			<div class="sidebar">
+				<a class="navbar-brand" href="{{ path('landing_home') }}"><img src="{{ asset('build/images/Logos/LogoLJMBWhite.png') }}" alt="le juriste moderne logo"></a>
+				<ul>
+					{% set page = app.request.get('_route') %}
+					<li class="{% if page == 'landing_dashboard'%} navSelect {% endif %}">
+						<a href="{{ path('landing_dashboard') }}">Tableau de bord</a>
+					</li>
+					<li class="{% if page == '#'%} navSelect {% endif %}">
+						<a href="#">Structure</a>
+					</li>
+					<li class="{% if page == 'members_index' %} navSelect {% endif %}">
+						<a href="{{ path('members_index') }}">Membres</a>
+					</li>
+					<li class="{% if page == '#'%} navSelect {% endif %}">
+						<a href="#">Réunions</a>
+					</li>
+					<li class="{% if page == 'document_index'%} navSelect {% endif %}">
+						<a href="{{ path('document_index') }}">Documents</a>
+					</li>
+					<li class="{% if page == '#'%} navSelect {% endif %}">
+						<a href="#">Mon compte</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="header d-flex flex-row align-items-end">
+			{% if app.user %}
+				<a href="{{ path('app_logout') }}"><img src="{{ asset('/build/images/delog.png') }}" height="40px" width="40px" alt="log In"></a>
+				<p class="text-light m-0 pb-1 ps-1">{{ app.user.firstname }}
+					{{ app.user.lastname }}</p>
+			{% else %}
+				<a class="nav-link p-0" href="{{ path('app_login') }}"><img class="nav-item" src="{{ asset('/build/images/log.png') }}" height="40px" width="40px" alt="log IN"></a>
+			{% endif %}
+			<img class="mb-1 ms-3" src="{{ asset('/build/images/notifs.png') }}" height="30px" width="30px" alt="notifications">
+		</div>
+	</section>
+
+	<section class="navxs">
+		<nav class="navbar navbar-expand-lg sticky-top">
+			<div class="ms-3">
+				<a class="navbar-brand" href="{{ path('landing_home') }}"><img src="{{ asset('build/images/Logos/LogoLJMBWhite.png') }}" width="150px" alt="le juriste moderne logo"></a>
+			</div>
+			<div class="d-lg-none d-flex justify-content-center align-items-end">
+				{% if app.user %}
+					<p class="user nav-item text-light m-0">{{ app.user.firstname }}
+						{{ app.user.lastname }}</p>
+					<a class="logout nav-link pb-0" href="{{ path('app_logout') }}"><img src="{{ asset('/build/images/delog.png') }}" height="40px" width="40px" alt="log In"></a>
+				{% else %}
+					<a class="nav-link active pb-0" href="{{ path('app_login') }}"><img class="nav-item" src="{{ asset('/build/images/log.png') }}" height="40px" width="40px" alt="log Out"></a>
+				{% endif %}
+			</div>
+			<div class="d-md-flex justify-content-center align-items-end me-4">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="material-icons pt-1 menu">menu</span>
+				</button>
+			</div>
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0">
+						{% set page = app.request.get('_route') %}
+						<li class="nav-item">
+							<a class="nav-link {% if page == 'landing_dashboard'%} {% else %}item_not_select{% endif %}" href="{{ path('landing_dashboard') }}">Tableau de bord</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {% if page == '#'%} {% else %}item_not_select{% endif %}" href="#">Structure</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {% if page == 'members_index' %} {% else %}item_not_select{% endif %}" href="{{ path('members_index') }}">Membres</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {% if page == '#'%} {% else %}item_not_select{% endif %}" href="#">Réunions</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {% if page == 'document'%} {% else %}item_not_select{% endif %}" href="{{ path('document_index') }}">Documents</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {% if page == '#'%} {% else %}item_not_select{% endif %}" href="#">Mon compte</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</section>
+</header>

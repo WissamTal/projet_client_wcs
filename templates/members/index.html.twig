@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}-
+
+{% endblock %}
+
+{% block navbar %}
+    {% include 'admin/_navbarAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="main_content">
+        <h1 class="text-left my-3">Les membres, partenaires et intervenants de
+            {{ name }}
+        </h1>
+        <div class="container mt-5" {{ stimulus_controller('reload-content', { url: path('members_index', {ajax: 1 } ) }) }}
+             data-action="modal-form:success->reload-content#refreshContent">
+            <div class="row my-5">
+                <div
+                        class="col-12 col-md-12 col-lg-4">{# add form here #}
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    Filtre
+                </div>
+
+                {# Modal #}
+                <div class="col-12 col-md-12 col-lg-4 text-center">
+                    <div class="mt-2" {{ stimulus_controller('modal-form', { formUrl : path('legalPerson_new') } ) }}
+                         data-action="hidden.bs.modal->modal-form#modalHidden">
+
+                        <button class="button button-light" data-action="modal-form#openModal">Ajouter personne morale
+                        </button>
+                        {{ include('_modal.html.twig', {
+                            modalTitle: 'Ajouter une personne morale'
+                        }) }}
+                    </div>
+                    <div class="mt-2" {{ stimulus_controller('modal-form', {formUrl: path('naturalPerson_new')} ) }}
+                         data-action="hidden.bs.modal->modal-form#modalHidden">
+                        <button class="button button-light" data-action="modal-form#openModal">
+                            Ajouter personne physique
+                        </button>
+                        {{ include('_modal.html.twig', {
+                            modalTitle: 'Ajouter une personne physique'
+                        }) }}
+                    </div>
+                </div>
+                <div data-reload-content-target="content">
+
+                    {{ include('members/_list.html.twig') }}
+                </div>
+            </div>
+            <div class="row text-end mt-5">
+                <div class="col-12">
+                    <a class="button button-light" href="{{ path('members_sendMail') }}">Envoyer Email à sélection</a>
+                </div>
+                <div class="col-12 mt-3">
+                    <a class="button button-light" href="#">Editer tableau XIs complet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        jQuery(document).ready(function () { // Get the ul that holds the collection of tags
+            var $addressesCollectionHolder = $('ul.addresses');
+// count the current form inputs we have (e.g. 2), use that as the new
+// index when inserting a new item (e.g. 2)
+            $addressesCollectionHolder.data('index', $addressesCollectionHolder.find('input').length);
+
+            $addressesCollectionHolder.find('li').each(function () {
+                addTagFormDeleteLink($(this));
+            });
+
+            $('body').on('click', '.add_item_link', function (e) {
+                var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
+// add a new tag form (see next code block)
+                addFormToCollection($collectionHolderClass);
+            })
+
+            function addFormToCollection($collectionHolderClass) { // Get the ul that holds the collection of tags
+                var $collectionHolder = $('.' + $collectionHolderClass);
+
+// Get the data-prototype explained earlier
+                var prototype = $collectionHolder.data('prototype');
+
+// get the new index
+                var index = $collectionHolder.data('index');
+
+                var newForm = prototype;
+// You need this only if you didn't set 'label' => false in your tags field in TaskType
+// Replace '__name__label__' in the prototype's HTML to
+// instead be a number based on how many items we have
+// newForm = newForm.replace(/__name__label__/g, index);
+
+// Replace '__name__' in the prototype's HTML to
+// instead be a number based on how many items we have
+                newForm = newForm.replace(/__name__/g, index);
+
+// increase the index with one for the next item
+                $collectionHolder.data('index', index + 1);
+
+// Display the form in the page in an li, before the "Add a tag" link li
+                var $newFormLi = $('<li></li>').append(newForm);
+// Add the new form at the end of the list
+                $collectionHolder.append($newFormLi)
+                addTagFormDeleteLink($newFormLi);
+            }
+
+            function addTagFormDeleteLink($tagFormLi) {
+                var $removeFormButton = $('<button type="button" class="button button-light">Delete this address</button>');
+                $tagFormLi.append($removeFormButton);
+
+                $removeFormButton.on('click', function (e) { // remove the li for the tag form
+                    $tagFormLi.remove();
+                });
+            }
+        });
+
+        $(".checkbox").click(function() {
+            const $row = $(this).closest("tr");    // Find the row
+            const $text = $row.find(".mail").text(); // Find the text
+            console.log($text)
+
+            $.ajax({
+                method: "POST",
+                url: "nom de ma route d'envoie de mail?",
+                data: $text
+            })
+            .done(function () {
+                console.log('email sent success')
+            })
+
+
+
+        });
+
+            function toggleMenu() {
+            const menuBox = document.getElementById('executif-display');
+            if(menuBox.style.display === "block") { // if is menuBox displayed, hide it
+            menuBox.style.display = "none";
+        }
+            else { // if is menuBox hidden, display it
+            menuBox.style.display = "block";
+        }
+        }
+
+
+    </script>
+{% endblock %}

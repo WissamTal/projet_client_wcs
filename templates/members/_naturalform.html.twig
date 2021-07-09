@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+{{ form_row(form.gender, {'label': 'Genre'}) }}
+{{ form_row(form.firstname, {'label': 'Prénom'}) }}
+{{ form_row(form.lastname, {'label': 'Nom'}) }}
+{{ form_row(form.dateOfBirth, {'label': 'Date de naissance'}) }}
+{{ form_row(form.placeOfBirth, {'label': 'Lieu de naissance'}) }}
+{{ form_row(form.email, {'label': 'Email'}) }}
+{{ form_row(form.telephone, {'label': 'Téléphone'}) }}
+{{ form_row(form.telephone2, {'label': 'Téléphone(2)'}) }}
+{{ form_row(form.mainLegalPerson, {'label': 'Entreprise'}) }}
+<h3>Adresse(s)</h3>
+<ul class="addresses" data-prototype="{{ form_widget(form.addresses.vars.prototype)|e('html_attr') }}">
+	{% for address in form.addresses %}
+		<li>{{ form_row(address.addressStreet) }}</li>
+		<li>{{ form_row(address.addressComplement) }}</li>
+		<li>{{ form_row(address.addressZip) }}</li>
+		<li>{{ form_row(address.addressCity) }}</li>
+		<li>{{ form_row(address.addressCountry) }}</li>
+	{% endfor %}
+</ul>
+<button type="button" class="add_item_link button button-light" data-collection-holder-class="addresses">Ajouter une adresse</button>
+{{ form_row(form.structureMember) }}
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}

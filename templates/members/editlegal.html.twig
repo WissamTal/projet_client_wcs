@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Editer personne morale
+{% endblock %}
+
+{% block navbar %}
+	{% include 'admin/_navbarAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	<h1>Editer personne morale</h1>
+
+	{{ include('members/_legalform.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+	<a href="{{ path('members_index') }}">Retour à la liste</a>
+
+	{{ include('legal_person/_delete_form.html.twig') }}
+{% endblock %}

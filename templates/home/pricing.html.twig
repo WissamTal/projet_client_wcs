@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Pricing{% endblock %}
+
+{% block navbar %}{% include 'home/_navbar.html.twig' %}{% endblock %}
+
+{% block body %}
+	<!--================ Banner start =================-->
+<section class="hero-banner hero-banner--sm mb-30px">
+	<div class="container">
+		<div class="text-center">
+			<div class="hero-banner--sm__content">
+				<h1>Tarifs</h1>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--================ Banner end =================-->
+    <!--================ Pricing section start =================-->
+<section class="section-margin">
+	<div class="container">
+		<div class="section-intro pb-85px text-center">
+			<h2 class="section-intro__title">Choississez la formule adaptée à vos besoins</h2>
+			<p class="hero-banner--home__content">Les premières fonctionnalités sont disponibles gratuitement. Nous vous recommandons cependant de souscrire à nos offres payantes si vous souhaitez bénéficier des fonctionnalités avancées de notre application.</p>
+		</div>
+    {% include 'home/_pricing.html.twig' %}
+    <!--================ Pricing section end =================-->
+{% endblock %}
+
+{% block footer %}{% include 'home/_footer.html.twig' %}{% endblock %}

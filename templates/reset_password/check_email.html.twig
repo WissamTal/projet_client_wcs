@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Réinitialisation de votre mot de passe
+{% endblock %}
+
+{% block body %}
+	<section class="hero-banner hero-banner--sm mb-30px">
+		<div class="container">
+			<div class="text-center">
+				<div class="hero-banner--sm__content">
+					<h1>Votre email a été envoyé</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section-margin">
+		<div class="container text-center">
+			<h5 class="my-3">
+				Si un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+			</h5>
+			<p class="my-5">Ce lien expirera dans
+				{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+				<br>Si vous ne recevez pas d'e-mail, vérifiez votre dossier de courrier indésirable (spam) ou
+			</p>
+			<a class="button button-light mt-2 mb-2 " href="{{ path('app_forgot_password_request') }}">Réessayer</a>
+		</div>
+	</section>
+{% endblock %}

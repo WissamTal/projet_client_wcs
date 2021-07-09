@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Collège{% endblock %}
+{% block body %}
+     <h1 class= "mt-5 text-center">Créer un nouveau collège</h1>
+        <div class="justify-content-center m-5">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type='submit' value='Ajouter un collège' class="m-3">
+        </div>
+        <div class="mb-5 m-5 text-end">
+            <a href="{{ path('college_index') }}">Retour à la liste</a>
+        </div>
+{% endblock %}

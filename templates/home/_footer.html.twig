@@ -1,0 +1,28 @@
+<footer class="container-fluid text-center">
+	<div class="footer-bottom row align-items-center text-lg-left">
+		<div class="container text-center">
+			<a href="#"><img src="{{ asset('build/images/RS/facebook.png')}}" height="35px" alt=""></a>
+			<a href="#"><img src="{{ asset('build/images/RS/linkedin.png')}}" height="30px" alt=""></a>
+			<a href="#"><img src="{{ asset('build/images/RS/tweeter.png')}}" height="35px" alt=""></a>
+		</div>
+		<div class="container text-center">
+			<p class="footer-text m-0 col-lg-12 col-md-12 my-2">
+				Copyright &copy;<script>
+					document.write(new Date().getFullYear());
+				</script>
+				Le Juriste Moderne</p>
+		</div>
+		<div class="container text-center row align-items-center text-lg-left">
+			<p>
+				<a href="#" class="text-reset">Mentions Légales</a>
+				<a href="#" class="text-reset">
+					&bull; Conditions Générales d'Utilisation</a>
+				<a href="{{ path('landing_pricing') }}" class="text-reset">
+					&bull; Tarifs</a>
+				<a href="{{ path('landing_contact') }}" class="text-reset">
+					&bull; Contact</a>
+			</p>
+		</div>
+	</div>
+</footer>
+

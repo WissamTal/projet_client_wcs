@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Register{% endblock %}
+{% block navbar %}{% include 'home/_navbar.html.twig' %}{% endblock %}
+
+{% block body %}
+	<!--================ Banner start =================-->
+<section class="hero-banner hero-banner--sm mb-30px form">
+	<div class="container">
+		<div class="text-center">
+			<div class="hero-banner--sm__content">
+				<h1>S'inscrire</h1>
+            </div>
+		</div>
+	</div>
+</section>
+	<!--================ Banner end =================-->
+
+	 <!--================ Register start =================-->
+<div class="container text-center mt-5">
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	{{ form_start(registrationForm) }}
+		{{ form_label(registrationForm.firstname, 'Prénom', {'label_attr': {'class': 'my-3'}}) }}
+	    	{{ form_errors(registrationForm) }}
+			{{ form_widget(registrationForm.firstname) }}
+		{{ form_label(registrationForm.lastname, 'Nom', {'label_attr': {'class': 'my-3'}}) }}
+	    	{{ form_errors(registrationForm) }}
+			{{ form_widget(registrationForm.lastname) }}
+		{{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'my-3'}}) }}
+	    	{{ form_errors(registrationForm) }}
+			{{ form_widget(registrationForm.email) }}
+		{{ form_label(registrationForm.password, 'Mot de passe', {'label_attr': {'class': 'my-3'}}) }}
+			{{ form_errors(registrationForm) }}
+			{{ form_widget(registrationForm.password) }}
+		{{ form_label(registrationForm.structure, 'Structure', {'label_attr': {'class': 'my-3'}}) }}
+			{{ form_errors(registrationForm) }}
+			{{ form_widget(registrationForm.structure) }}
+	<button type="submit" class="button button-light my-5">S'inscrire</button>
+	{{ form_end(registrationForm) }}
+</div>
+	<!--================ LogIn end =================-->
+{% endblock %}
+
+{% block footer %}{% include 'home/_footer.html.twig' %}{% endblock %}

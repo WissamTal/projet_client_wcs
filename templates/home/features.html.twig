@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Features{% endblock %}
+
+{% block navbar %}{% include 'home/_navbar.html.twig' %}{% endblock %}
+
+{% block body %}
+	<!--================ Banner start =================-->
+<section class="hero-banner hero-banner--sm mb-30px">
+	<div class="container">
+		<div class="text-center">
+			<div class="hero-banner--sm__content">
+				<h1>Fonctionnalités</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<!--================ Banner end =================-->
+
+    <!--================ Features section start =================-->
+<section class="section-offer">
+	<div class="container">
+		<div class="section-intro pb-85px text-center">
+			<h2 class="section-intro__title">Ce que vous allez pouvoir faire avec notre logiciel</h2>
+			<p class="section-intro__subtitle">Gagner du temps et du confort, ne pas rater d'échéances, proposer un outil participatif résolumment moderne, voila ce que nous vous proposons !<br>
+				Alors n'hésitez plus, testez notre appli !</p>
+		</div>
+	{% include 'home/_offer.html.twig' %}
+
+    <!--================ Features section end =================-->
+{% endblock %}
+
+{% block footer %}{% include 'home/_footer.html.twig' %}{% endblock %}

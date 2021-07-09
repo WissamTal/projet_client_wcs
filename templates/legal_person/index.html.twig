@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Liste des personnes morales
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des personnes morales</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Siren</th>
+				<th>Registre du commerce et des sociétés</th>
+				<th>Capital</th>
+				<th>Forme juridique</th>
+				<th>Email</th>
+				<th>Téléphone</th>
+				<th>Téléphone2</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for legal_person in legal_people %}
+				<tr>
+					<td>{{ legal_person.id }}</td>
+					<td>{{ legal_person.name }}</td>
+					<td>{{ legal_person.siren }}</td>
+					<td>{{ legal_person.tradeAndCompagnyRegister }}</td>
+					<td>{{ legal_person.registerCapital }}</td>
+					<td>{{ legal_person.companyForm }}</td>
+					<td>{{ legal_person.email }}</td>
+					<td>{{ legal_person.telephone }}</td>
+					<td>{{ legal_person.telephone2 }}</td>
+					<td>
+						<a href="{{ path('legal_person_show', {'id': legal_person.id}) }}">Voir détails</a>
+						<a href="{{ path('legal_person_edit', {'id': legal_person.id}) }}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="11">Aucune personne morale trouvée</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('legal_person_new') }}">Ajouter une personne morale</a>
+{% endblock %}

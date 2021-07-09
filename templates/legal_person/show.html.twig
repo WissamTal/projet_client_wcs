@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Personne Morale
+{% endblock %}
+
+{% block navbar %}
+	{% include 'admin/_navbarAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+	<div class="main_content">
+		<h1>Personne Morale</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ legalPerson.id }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ legalPerson.name }}</td>
+				</tr>
+				<tr>
+					<th>SIREN</th>
+					<td>{{ legalPerson.siren }}</td>
+				</tr>
+				<tr>
+					<th>Registre du commerce et des sociétés</th>
+					<td>{{ legalPerson.tradeAndCompagnyRegister }}</td>
+				</tr>
+				<tr>
+					<th>Capital</th>
+					<td>{{ legalPerson.registerCapital }}</td>
+				</tr>
+				<tr>
+					<th>Forme juridique</th>
+					<td>{{ legalPerson.companyForm }}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>{{ legalPerson.email }}</td>
+				</tr>
+				<tr>
+					<th>Téléphone</th>
+					<td>{{ legalPerson.telephone }}</td>
+				</tr>
+				<tr>
+					<th>Téléphone 2</th>
+					<td>{{ legalPerson.telephone2 }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('members_index') }}">Retour à l'index</a>
+
+		<a href="{{ path('members_editLegal', {'id': legalPerson.id}) }}">Éditer</a>
+
+	</div>
+{% endblock %}

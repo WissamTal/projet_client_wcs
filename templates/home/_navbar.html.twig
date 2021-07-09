@@ -1,0 +1,58 @@
+<header class="header_area sticky-top">
+	<nav class="navbar navbar-expand-lg sticky-top">
+		<div class="ms-3">
+			{% if app.user %}
+				<a class="navbar-brand" href="{{ path('landing_dashboard') }}"><img src="{{ asset('build/images/Logos/LogoLJMBWhite.png') }}" width="150px" alt="le juriste moderne logo"></a>
+			{% else %}
+				<a class="navbar-brand" href="{{ path('landing_home') }}"><img src="{{ asset('build/images/Logos/LogoLJMBWhite.png') }}" width="150px" alt="le juriste moderne logo"></a>
+			{% endif %}
+		</div>
+		<div class="d-lg-none d-flex justify-content-center align-items-end">
+			{% if app.user %}
+				<p class="user nav-item text-light m-0">{{ app.user.firstname }}
+					{{ app.user.lastname }}</p>
+				<a class="logout nav-link pb-0" href="{{ path('app_logout') }}"><img src="{{ asset('/build/images/delog.png') }}" height="40px" width="40px" alt="log In"></a>
+			{% else %}
+				<a class="nav-link active pb-0" href="{{ path('app_login') }}"><img class="nav-item" src="{{ asset('/build/images/log.png') }}" height="40px" width="40px" alt="log Out"></a>
+			{% endif %}
+		</div>
+		<div class="d-md-flex justify-content-center align-items-end me-4">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="material-icons pt-1 menu">menu</span>
+			</button>
+		</div>
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0">
+					{% set page = app.request.get('_route') %}
+					<li class="nav-item">
+						<a class="nav-link {% if page == 'landing_home'%} {% else %}item_not_select{% endif %}" href="{{ path('landing_home') }}">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if page == 'landing_features'%} {% else %}item_not_select{% endif %}" href="{{ path('landing_features') }}">Fonctionnalités</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if page == 'landing_pricing'%} {% else %}item_not_select{% endif %}" href="{{ path('landing_pricing') }}">Prix</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link {% if page == 'landing_contact'%} {% else %}item_not_select{% endif %}" href="{{ path('landing_contact') }}">Contact</a>
+					</li>
+				</ul>
+				<div class="logxs d-lg-flex justify-content-end align-items-end">
+					{% if app.user %}
+						<p class="nav-item text-light m-0">{{ app.user.firstname }}
+							{{ app.user.lastname }}</p>
+						<a class="nav-link" href="{{ path('app_logout') }}"><img src="{{ asset('/build/images/delog.png') }}" height="40px" width="40px" alt="log In"></a>
+					{% else %}
+						<a class="nav-link active" href="{{ path('app_login') }}"><img class="nav-item" src="{{ asset('/build/images/log.png') }}" height="40px" width="40px" alt="log Out"></a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</nav>
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success text-center">
+			{{ message }}
+		</div>
+	{% endfor %}
+</header>
