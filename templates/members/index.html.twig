@@ -129,17 +129,14 @@
             const $text = $row.find(".mail").text(); // Find the text
             console.log($text)
 
-            $.ajax({
+        $.ajax({
                 method: "POST",
-                url: "nom de ma route d'envoie de mail?",
+                url: {{ path('members_sendMail') }},
                 data: $text
             })
             .done(function () {
                 console.log('email sent success')
             })
-
-
-
         });
 
             function toggleMenu() {

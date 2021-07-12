@@ -123,12 +123,13 @@ class MembersController extends AbstractController
      * @Route("/sendMail", name="sendMail")
      */
 
-    public function sendMail($text)
+    public function sendMail()
     {
 
+        $text = $_POST['$text'];
         $mail = new Mail();
         $mail->send($text, 'Wissam Taleb', 'TesT Mail', 'Bonjour Wissam');
-
+        dd($text);
         $this->addFlash('success', 'Mail Sent To Selection!');
         return $this->redirectToRoute('members_index');
     }
